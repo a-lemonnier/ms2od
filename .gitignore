@@ -1,4 +1,6 @@
-.kde4
+build
+data
+.kdev4
 .git
 .bck
 .tmp

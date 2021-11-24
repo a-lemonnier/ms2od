@@ -43,6 +43,7 @@
     <name>FrameChart</name>
     <message>
         <location filename="../framechart.ui" line="20"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_framechart.h" line="40"/>
         <source>Chart</source>
         <translation type="unfinished"></translation>
     </message>
@@ -76,189 +77,229 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="37"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="749"/>
         <source>ms2od</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="791"/>
         <source>Conversion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="750"/>
         <source>&amp;Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="163"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="751"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="752"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="225"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="753"/>
         <source>Show &amp;Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="262"/>
         <location filename="../mainwindow.ui" line="967"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="757"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="799"/>
         <source>&amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="295"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="759"/>
         <source>Binary found ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="298"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="761"/>
         <source>Bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="763"/>
         <source>Filetype choosen ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="331"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="765"/>
         <source>Ext</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="367"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="767"/>
         <source>Input directory defined ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="370"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="769"/>
         <source>In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="403"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="771"/>
         <source>Output directory defined ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="406"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="773"/>
         <source>Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="451"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="775"/>
         <source>Counter.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="777"/>
         <source>Files:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="475"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="779"/>
         <source>Number of files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="540"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="782"/>
         <source>Progession.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="638"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="785"/>
         <source>Input directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="656"/>
         <location filename="../mainwindow.ui" line="891"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="786"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="794"/>
         <source>Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="713"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="787"/>
         <source>to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="766"/>
         <location filename="../mainwindow.ui" line="862"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="788"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="792"/>
         <source>&amp;Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="787"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="789"/>
         <source>Conversion from:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="805"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="790"/>
         <source>Output directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="809"/>
         <source>&amp;Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="793"/>
         <source>Log Location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="906"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="795"/>
         <source>LibreOffice location:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="913"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="796"/>
         <source>LD_LIBRARY_PATH:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="923"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="797"/>
         <source>&amp;Set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="942"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="798"/>
         <source>Actions:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="995"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="800"/>
         <source>&amp;Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1028"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="801"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1061"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="803"/>
         <source>Language ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1093"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="806"/>
         <source>Threads:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1165"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="807"/>
         <source>Restore folder tree</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1180"/>
+        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="808"/>
         <source>Display LibreOfiice Output</source>
         <translation type="unfinished"></translation>
     </message>
