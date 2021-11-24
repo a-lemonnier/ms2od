@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/i18n">
+        <file alias="fr_FR">ms2od_fr_FR.qm</file>
+    </qresource>
+</RCC>

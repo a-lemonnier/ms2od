@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>bug.svg</file>
+        <file>circle_green.svg</file>
+        <file>circle_red.svg</file>
+        <file>eng.svg</file>
+        <file>fr.svg</file>
+        <file>gear.svg</file>
+        <file>recipes.svg</file>
+    </qresource>
+</RCC>
