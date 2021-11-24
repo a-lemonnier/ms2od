@@ -85,7 +85,6 @@ MainWindow::MainWindow(QTranslator* translator,
     else
         this->Log_->append(tr("User does not have permission to write config file in /var/tmp")+".", Logger::Level::Warning);
 
-
     // Load Conf file and update strings
     this->confAvailable_=this->loadConf(this->confLocation_);
 
@@ -93,6 +92,8 @@ MainWindow::MainWindow(QTranslator* translator,
     ui->lineEdit_dirIn->setText(this->InDirPath_);
     ui->lineEdit_LOLoc->setText(this->LOPath_);
     ui->lineEdit_LogPath->setText(this->LogPath_);
+
+    ui->lineEdit_LDLIB->setState(2);
 
     this->setFont(QFont(this->font().family(), 7));
 
@@ -1067,9 +1068,11 @@ void MainWindow::on_pushButton_reset_clicked() {
     ui->lineEdit_dirIn->setText("");
     ui->lineEdit_dirOut->setText("");
     ui->lineEdit_LogPath->setText("./");
+    ui->lineEdit_LDLIB->setText("");
 
     ui->lineEdit_dirIn->setState(2);
     ui->lineEdit_dirOut->setState(2);
+    ui->lineEdit_LDLIB->setState(2);
 
     this->State_.Input=false;
     this->State_.Output=false;
