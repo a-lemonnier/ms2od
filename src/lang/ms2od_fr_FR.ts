@@ -117,7 +117,7 @@
         <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="757"/>
         <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="799"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Quitter</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="295"/>
