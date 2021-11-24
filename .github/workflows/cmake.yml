@@ -1,0 +1,24 @@
+
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-ubuntu:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: upgrade
+      run: sudo apt update; sudo apt install -y tzdata gcc g++ clang cmake
+    - name: install qt
+      run: sudo apt install -y qt5-default qtbase5-dev qttools5-dev  qtbase5-dev-tools qtcreator libqt5charts5-dev qtwebengine5-dev
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: build
+      run: cmake --build build
