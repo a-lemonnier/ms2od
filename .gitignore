@@ -5,3 +5,4 @@ data
 .bck
 .tmp
 CMakeLists.txt.user
+.directory
