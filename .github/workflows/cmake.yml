@@ -3,10 +3,14 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
+
+env:
+    BUILD_TYPE: Release
+  
 jobs:
   build-ubuntu:
 
@@ -19,6 +23,6 @@ jobs:
     - name: install qt
       run: sudo apt install -y qt5-default qtbase5-dev qttools5-dev  qtbase5-dev-tools qtcreator libqt5charts5-dev qtwebengine5-dev
     - name: configure
-      run: mkdir build && cd build && cmake ..
+      run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ..
     - name: build
       run: cmake --build build
