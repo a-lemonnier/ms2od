@@ -36,6 +36,7 @@
 #include <QTextCursor>
 #include <QScrollEvent>
 
+#include <QtGlobal>
 #include <QDebug>
 
 #include "lineeditcolored.h"

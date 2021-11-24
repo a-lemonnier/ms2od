@@ -116,7 +116,7 @@ MainWindow::MainWindow(QTranslator* translator,
     }
 
     // Flag
-    if (this->translator_->language().toLower()=="fr_fr") {
+    if (this->locale().language()==QLocale::French) {
         ui->pushButton_Flag->setIcon(this->iconFlagFr_);
         this->isEng_=false;
     }
