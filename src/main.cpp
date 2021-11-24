@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     for (const QString &locale : uiLanguages) {
         const QString baseName = "ms2od_" + QLocale(locale).name();
-        if (translator.load(":/fr_FR" + baseName)) {
+        if (translator.load(":/i18n/"+baseName+"fr_FR")) {
             app.installTranslator(&translator);
             break;
         }

@@ -59,7 +59,7 @@ void Convert::run() {
        while(this->pause_)  QThread::msleep(250);
 
        if (this->stop_) {
-            emit(this->progressionString(tr("Stop conversion "), this->getIdx()));
+            emit(this->progressionString(tr("Stop conversion"), this->getIdx()));
            break;
        }
 
@@ -91,7 +91,7 @@ void Convert::run() {
 
        if (!EC.exec()) {
            std::stringstream ss{};
-           ss << tr("Cannot covert file").toStdString()
+           ss << tr("Cannot convert file").toStdString()
               << " " << file << " :"
               << "\n\tCommand: "
               << EC.getCmd() << ".";

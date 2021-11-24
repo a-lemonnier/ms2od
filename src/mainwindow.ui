@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>676</width>
-    <height>361</height>
+    <width>773</width>
+    <height>363</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -83,7 +83,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>true</bool>
@@ -472,7 +472,10 @@
                </font>
               </property>
               <property name="toolTip">
-               <string>Number of files.</string>
+               <string>Number of processed files.</string>
+              </property>
+              <property name="whatsThis">
+               <string>Number of processed files.</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
@@ -915,7 +918,14 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="lineEdit_LDLIB"/>
+           <widget class="LineEditColored" name="lineEdit_LDLIB">
+            <property name="toolTip">
+             <string>LibreOffice may not find some shared library and it may be necessary to specify the path.</string>
+            </property>
+            <property name="whatsThis">
+             <string>LibreOffice may not find some shared library and it may be necessary to specify the path.</string>
+            </property>
+           </widget>
           </item>
           <item row="2" column="2">
            <widget class="QPushButton" name="pushButton_LDLIB">
@@ -1058,7 +1068,10 @@
              </font>
             </property>
             <property name="toolTip">
-             <string>Language ?</string>
+             <string>Toggle language.</string>
+            </property>
+            <property name="whatsThis">
+             <string>Toggle language.</string>
             </property>
             <property name="text">
              <string/>
@@ -1106,6 +1119,15 @@
              <font>
               <pointsize>7</pointsize>
              </font>
+            </property>
+            <property name="toolTip">
+             <string>Define the number of simultaneous thread used for conversion. It does not follow the number of the CPU core.</string>
+            </property>
+            <property name="statusTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>Define the number of simultaneous thread used for conversion. It does not follow the number of the CPU core.</string>
             </property>
             <property name="wrapping">
              <bool>false</bool>
@@ -1157,6 +1179,12 @@
              <font>
               <pointsize>7</pointsize>
              </font>
+            </property>
+            <property name="toolTip">
+             <string>Rebuild the whole directory tree in the specified output directory, i.e. copy the existing directory.</string>
+            </property>
+            <property name="whatsThis">
+             <string>Rebuild the whole directory tree in the specified output directory, i.e. copy the existing directory.</string>
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
