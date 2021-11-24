@@ -3,6 +3,8 @@ data
 .kdev4
 .git
 .bck
+src/.bck
 .tmp
 CMakeLists.txt.user
 .directory
+
