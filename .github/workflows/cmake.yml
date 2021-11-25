@@ -21,7 +21,7 @@ jobs:
     - name: upgrade
       run: sudo apt update; sudo apt install -y tzdata gcc g++ clang cmake
     - name: install qt
-      run: sudo apt install -y qt5-default qtbase5-dev qttools5-dev  qtbase5-dev-tools qtcreator libqt5charts5-dev qtwebengine5-dev doxygen doxygen-latex doxygen2man
+      run: sudo apt install -y qt5-default qtbase5-dev qttools5-dev  qtbase5-dev-tools qtcreator libqt5charts5-dev qtwebengine5-dev doxygen doxygen-latex 
     - name: configure
       run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} ..
     - name: build
