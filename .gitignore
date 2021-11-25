@@ -8,4 +8,7 @@ src/.bck
 .tmp
 CMakeLists.txt.user
 .directory
-
+src/.directory
+src/icons/.directory
+src/lang/.directory
+doc/.directory
