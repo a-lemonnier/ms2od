@@ -950,7 +950,8 @@ void MainWindow::on_pushButton_start_clicked() {
 
 
     // Clean previous threads ---------------------
-    for(const auto &dir: std::filesystem::directory_iterator("/tmp")) {
+    std::filesystem::path path{this->confLocation_};
+    for(const auto &dir: std::filesystem::directory_iterator(path.parent_path())) {
         if (dir.path().filename().string().find(this->tmpFolderPrefixConv_)!=std::string::npos) {
             std::error_code ec;
             std::filesystem::remove_all(dir, ec);
@@ -1156,6 +1157,8 @@ void MainWindow::on_pushButton_Quit2_clicked() {
 
 
 void MainWindow::on_pushButton_Stop_clicked() {
+    ui->pushButton_Stop->setEnabled(false);
+    ui->pushButton_Pause->setEnabled(false);
 
     for(auto &conv: this->vecConvert_) {
         if (!conv->isRunning()) return;
@@ -1168,7 +1171,13 @@ void MainWindow::on_pushButton_Stop_clicked() {
         delete conv;
     }
 
-    ui->pushButton_Stop->setEnabled(false);
-    ui->pushButton_Pause->setEnabled(false);
+    std::filesystem::path path{this->confLocation_};
+    for(const auto &dir: std::filesystem::directory_iterator(path.parent_path())) {
+        if (dir.path().filename().string().find(this->tmpFolderPrefixConv_)!=std::string::npos) {
+            std::error_code ec;
+            std::filesystem::remove_all(dir, ec);
+            if (ec) qDebug() << "-\t" << "Cannot remove " << dir.path().filename().c_str() << ": " << ec.message().c_str();
+        }
+    }
 }
 

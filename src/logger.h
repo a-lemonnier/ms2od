@@ -111,7 +111,6 @@ private:
     std::string prefix_{};
     std::string suffix_{"</span></div>"};
 
-
     std::string Header_{};
     std::string Footer_{};
 
@@ -130,8 +129,6 @@ private:
     void initWebEngineView_();
 
     void saveLog(const QString& path);
-
-
 };
 
 #include "logger.tpp"

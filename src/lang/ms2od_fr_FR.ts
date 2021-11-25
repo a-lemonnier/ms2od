@@ -68,7 +68,7 @@
         <translation type="unfinished">Début du journal...</translation>
     </message>
     <message>
-        <location filename="../logger.cpp" line="85"/>
+        <location filename="../logger.cpp" line="89"/>
         <source>Max history reached: 80% removed</source>
         <translation type="unfinished">Longueur maximum du journal atteinte: 80% effacé</translation>
     </message>
@@ -425,77 +425,77 @@
         <translation type="unfinished">Chemin changé vers:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="983"/>
+        <location filename="../mainwindow.cpp" line="984"/>
         <source>Slicing file list</source>
         <translation type="unfinished">Découpe de la liste de fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1018"/>
+        <location filename="../mainwindow.cpp" line="1019"/>
         <source>File Counter and file vector size do not match</source>
         <translation type="unfinished">Le compteur de fichier et le vecteur des fichiers ne correspondent pas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1042"/>
+        <location filename="../mainwindow.cpp" line="1043"/>
         <source>Processing</source>
         <translation type="unfinished">En cours</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1052"/>
+        <location filename="../mainwindow.cpp" line="1053"/>
         <source>Directory trees will be restored</source>
         <translation type="unfinished">L&apos;arborescence sera restaurée</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1060"/>
+        <location filename="../mainwindow.cpp" line="1061"/>
         <source>Resetting configuration</source>
         <translation type="unfinished">Mise-à-zero de la configuration</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1095"/>
+        <location filename="../mainwindow.cpp" line="1096"/>
         <source>Changing the number of threads to</source>
         <translation type="unfinished">Changement du nombre de tâches vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1106"/>
-        <location filename="../mainwindow.cpp" line="1112"/>
+        <location filename="../mainwindow.cpp" line="1107"/>
+        <location filename="../mainwindow.cpp" line="1113"/>
         <source>Toggle language to</source>
         <translation type="unfinished">Changement de la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1106"/>
+        <location filename="../mainwindow.cpp" line="1107"/>
         <source>English</source>
         <translation type="unfinished">Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1112"/>
-        <location filename="../mainwindow.cpp" line="1114"/>
+        <location filename="../mainwindow.cpp" line="1113"/>
+        <location filename="../mainwindow.cpp" line="1115"/>
         <source>French</source>
         <translation type="unfinished">Français</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1114"/>
+        <location filename="../mainwindow.cpp" line="1115"/>
         <source>Cannot change language to</source>
         <translation type="unfinished">Impossible de modifier la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1122"/>
+        <location filename="../mainwindow.cpp" line="1123"/>
         <source>Toggle file names displaying</source>
         <translation type="unfinished">Changement de l&apos;affichier des noms de fichier</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1131"/>
-        <location filename="../mainwindow.cpp" line="1145"/>
+        <location filename="../mainwindow.cpp" line="1132"/>
+        <location filename="../mainwindow.cpp" line="1146"/>
         <source>Resume</source>
         <translation type="unfinished">Reprendre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1132"/>
-        <location filename="../mainwindow.cpp" line="1137"/>
+        <location filename="../mainwindow.cpp" line="1133"/>
+        <location filename="../mainwindow.cpp" line="1138"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1137"/>
-        <location filename="../mainwindow.cpp" line="1145"/>
+        <location filename="../mainwindow.cpp" line="1138"/>
+        <location filename="../mainwindow.cpp" line="1146"/>
         <source>thread</source>
         <translation type="unfinished">tâches</translation>
     </message>
