@@ -48,14 +48,14 @@
         <translation type="unfinished">Graphique</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="130"/>
-        <location filename="../framechart.cpp" line="146"/>
-        <location filename="../framechart.cpp" line="171"/>
+        <location filename="../framechart.cpp" line="142"/>
+        <location filename="../framechart.cpp" line="158"/>
+        <location filename="../framechart.cpp" line="183"/>
         <source>Speed</source>
         <translation type="unfinished">Vitesse</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="172"/>
+        <location filename="../framechart.cpp" line="184"/>
         <source>Duration</source>
         <translation type="unfinished">Durée</translation>
     </message>
@@ -68,7 +68,7 @@
         <translation type="unfinished">Début du journal...</translation>
     </message>
     <message>
-        <location filename="../logger.cpp" line="89"/>
+        <location filename="../logger.cpp" line="84"/>
         <source>Max history reached: 80% removed</source>
         <translation type="unfinished">Longueur maximum du journal atteinte: 80% effacé</translation>
     </message>

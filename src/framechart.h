@@ -59,12 +59,9 @@ private:
     std::vector<std::pair<double, double>> data_;
 
     void plot_();
-    void rescale_();
-
 
     void initChart_();
     void initSerie_();
     void initAxis_();
-
 };
 

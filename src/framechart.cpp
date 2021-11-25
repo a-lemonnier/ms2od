@@ -7,18 +7,17 @@ FrameChart::FrameChart(QWidget *parent) :
     ui(new Ui::FrameChart) {
     ui->setupUi(this);
 
-   this->setWindowFlag(Qt::Dialog);
-   this->setWindowFlag(Qt::FramelessWindowHint);
-   this->setWindowFlag(Qt::WindowDoesNotAcceptFocus);
+    this->setWindowFlag(Qt::Dialog);
+    this->setWindowFlag(Qt::FramelessWindowHint);
+    this->setWindowFlag(Qt::WindowDoesNotAcceptFocus);
 
-   this->centralLayout_=new QVBoxLayout();
+    this->centralLayout_=new QVBoxLayout();
 
     this->initChart_();
-   this->initSerie_();
-  this->initAxis_();
+    this->initSerie_();
+    this->initAxis_();
 
-   this->setLayout(this->centralLayout_);
-
+    this->setLayout(this->centralLayout_);
 }
 
 FrameChart::~FrameChart() {
@@ -35,9 +34,13 @@ void FrameChart::setData(const std::vector<std::pair<double, double> >& data) {
     if (!data.empty()) {
         this->chart_->removeAxis(this->axisX_);
         this->chart_->removeAxis(this->axisY_);
+
         this->chart_->addSeries(this->series_);
-        this->chart_->setAxisX(this->axisX_, this->series_);
-        this->chart_->setAxisY(this->axisY_, this->series_);
+
+        this->chart_->addAxis(this->axisX_, Qt::AlignBottom);
+        this->chart_->addAxis(this->axisY_, Qt::AlignLeft);
+        this->series_->attachAxis(this->axisX_);
+        this->series_->attachAxis(this->axisY_);
     }
 }
 
@@ -53,18 +56,14 @@ void FrameChart::addPoint(double x, double y) {
 
     this->chart_->addSeries(this->series_);
 
-    this->chart_->setAxisX(this->axisX_, this->series_);
-    this->chart_->setAxisY(this->axisY_, this->series_);
+    this->chart_->addAxis(this->axisX_, Qt::AlignBottom);
+    this->chart_->addAxis(this->axisY_, Qt::AlignLeft);
+    this->series_->attachAxis(this->axisX_);
+    this->series_->attachAxis(this->axisY_);
 }
 
 void FrameChart::reset() {
     if (this->centralLayout_) delete this->centralLayout_;
-
-    // these below crashes
-
-//        if (this->chart_) delete this->chart_;
-//            if (this->chartView_) delete this->chartView_;
-//    if (this->series_) delete this->series_;
 
     this->centralLayout_=new QVBoxLayout();
     this->setObjectName("reset layout");
@@ -86,15 +85,11 @@ void FrameChart::reset() {
     this->initSerie_();
     this->initAxis_();
 
-
-
     this->setLayout(this->centralLayout_);
-
 }
 
 void FrameChart::show() {
     this->plot_();
-
     QWidget::show();
 }
 
@@ -112,14 +107,7 @@ void FrameChart::changeEvent(QEvent *e) {
 
 void FrameChart::plot_() {
     this->chart_->show();
-
 }
-
-void FrameChart::rescale_() {
-    double min=0;
-    double max=0;
-}
-
 
 void FrameChart::initChart_() {
     // Chart ------------------------------------
@@ -171,7 +159,9 @@ void FrameChart::initAxis_() {
     this->axisY_->setTitleText("<span style='font-size:10px;'>"+tr("Speed")+"</span> <span style='font-size:10px;'>(s<sup>-1</sup>)</span>");
     this->axisX_->setTitleText("<span style='font-size:11px;'>"+tr("Duration")+"</span> <span style='font-size:10px;'>(s)</span>");
 
-    this->chart_->setAxisX(this->axisX_, this->series_);
-    this->chart_->setAxisY(this->axisY_, this->series_);
+    this->chart_->addAxis(this->axisX_, Qt::AlignBottom);
+    this->chart_->addAxis(this->axisY_, Qt::AlignLeft);
+    this->series_->attachAxis(this->axisX_);
+    this->series_->attachAxis(this->axisY_);
     // ------------------------------------------
 }
