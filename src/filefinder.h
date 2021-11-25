@@ -58,10 +58,10 @@ signals:
 private:
     QObject *parent_;
 
-    QString DirPath_{};
-    QString Extension_{};
+    QString path_{};
+    QString extension_{};
 
-    std::vector<std::string> InVector_{};
+    std::vector<std::string> filesVector_{};
 
-    std::atomic<int> FileCounter_{};
+    std::atomic<int> fileCounter_{};
 };

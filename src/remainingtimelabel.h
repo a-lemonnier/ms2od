@@ -75,7 +75,7 @@ private:
 
     double min_{}, max_{};
     double speed_{};
-    double rtime_{};
+    double remainTime_{};
 
     std::chrono::time_point<std::chrono::high_resolution_clock> clockStart_{};
 
@@ -85,7 +85,7 @@ private:
     std::atomic<int> N_=50;
     std::atomic<int> NAccomplished_=0;
 
-    std::vector<double> meanRtime_{};
+    std::vector<double> meanRemainTime_{};
 
     std::atomic<bool> stop_=false;
     std::atomic<bool> pause_=false;
@@ -98,7 +98,7 @@ private:
 
     void displayMode_(const Mode &mode);
 
-    std::pair<double, double> computeSpeedTime(const std::vector<std::tuple<double, double>> &vec);
+    std::pair<double, double> computeSpeedTime_(const std::vector<std::tuple<double, double>> &vec);
 
     /**
      * @brief Compute the means, clear the vector, and replace by the means

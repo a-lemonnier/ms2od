@@ -12,7 +12,7 @@ void Logger::append(T msg, Level lvl) {
     auto str=this->getCommentIdx_()+QString::fromStdString(this->prefix_)+new_data+QString::fromStdString(this->suffix_);
     this->data_.push_back(str);
 
-    this->newContent=true;
+    this->newContent_=true;
 }
 
 template<typename T,
@@ -33,7 +33,7 @@ void Logger::append(T msg, V val, Logger::Level lvl) {
     auto str=this->getCommentIdx_()+QString::fromStdString(this->prefix_)+new_data+QString::fromStdString(this->suffix_);
     this->data_.push_back(str);
 
-    this->newContent=true;
+    this->newContent_=true;
 }
 
 
@@ -54,5 +54,5 @@ void Logger::append(std::initializer_list<T> msgs, Logger::Level lvl) {
             auto str=this->getCommentIdx_()+QString::fromStdString(this->prefix_)+new_data+QString::fromStdString(this->suffix_);
         this->data_.push_back(str);
 
-    this->newContent=true;
+    this->newContent_=true;
 }

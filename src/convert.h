@@ -88,14 +88,14 @@ private:
 
     QString binPath_{};
 
-    std::string tmpFilePrefix_{"LO_Process"};
+    std::string tmpDirectoryPrefix_{"LO_Process"};
 
     int* sharedCounter_{};
     int progressionValue_{};
     QString progressionString_{};
 
-    std::vector<std::string> InVector_{};
-    std::vector<std::string> NewFolderTree_{};
+    std::vector<std::string> filesVector_{};
+    std::vector<std::string> newFolderTree_{};
 
     bool rebuildTree_=false;
 

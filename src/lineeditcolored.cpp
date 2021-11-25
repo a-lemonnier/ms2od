@@ -29,13 +29,13 @@ LineEditColored::LineEditColored(QWidget* parent):
         this->updatePalette_();
         this->setPalette ( this->paletteA_ );
 
-        this->bEffect_=new QGraphicsBlurEffect(this);
+        this->blurEffect_=new QGraphicsBlurEffect(this);
 
-        this->bEffect_->setBlurHints(QGraphicsBlurEffect::QualityHint);
-        this->bEffect_->setBlurRadius(2);
-        this->bEffect_->setEnabled(false);
+        this->blurEffect_->setBlurHints(QGraphicsBlurEffect::QualityHint);
+        this->blurEffect_->setBlurRadius(2);
+        this->blurEffect_->setEnabled(false);
 
-        this->setGraphicsEffect(this->bEffect_);
+        this->setGraphicsEffect(this->blurEffect_);
 }
 
 LineEditColored::~LineEditColored() { }
@@ -80,6 +80,6 @@ void LineEditColored::resetPalette() {
 }
 
 void LineEditColored::setBlured(bool b) {
-    this->bEffect_->setEnabled(b);
+    this->blurEffect_->setEnabled(b);
 }
 

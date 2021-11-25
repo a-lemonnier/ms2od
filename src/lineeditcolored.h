@@ -60,7 +60,7 @@ private:
     QColor color_{};
     QColor colorA_{Qt::darkBlue};
 
-    QGraphicsBlurEffect* bEffect_;
+    QGraphicsBlurEffect* blurEffect_;
 
     const std::pair<QColor, QColor> DefCol0={QColor(0xc5, 0, 0), QColor(0xd0, 0, 0)};
     const std::pair<QColor, QColor> DefCol1={QColor(0, 0xc0, 0), QColor(0, 0xd0, 0)};

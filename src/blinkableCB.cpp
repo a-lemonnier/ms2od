@@ -17,7 +17,7 @@ duration_(duration) {
 
     this->timer_=new QTimer();
 
-    connect(this->timer_, &QTimer::timeout, this, &BlinkableComboBox::blink);
+    connect(this->timer_, &QTimer::timeout, this, &BlinkableComboBox::blink_);
 }
 
 BlinkableComboBox::~BlinkableComboBox() {
@@ -27,7 +27,7 @@ BlinkableComboBox::~BlinkableComboBox() {
 
 void BlinkableComboBox::start() { this->timer_->start(this->periode_); }
 
-void BlinkableComboBox::blink() {
+void BlinkableComboBox::blink_() {
     this->count_--;
     if (this->count_<0) {
         this->setStyleSheet(this->styleSheet_);

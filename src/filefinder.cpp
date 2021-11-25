@@ -18,8 +18,8 @@ void FileFinder::run() {
 
     namespace fs=std::filesystem;
 
-    this->FileCounter_=0;
-    fs::path path(this->DirPath_.toStdString());
+    this->fileCounter_=0;
+    fs::path path(this->path_.toStdString());
 
     for(auto file=
         fs::recursive_directory_iterator(
@@ -28,23 +28,23 @@ void FileFinder::run() {
         file != fs::recursive_directory_iterator();
         ++file) {
 
-        if ((*file).path().extension().string()==this->Extension_.toStdString()) {
-            emit(updateCounter(this->FileCounter_++));
-            this->InVector_.emplace_back((*file).path());
+        if ((*file).path().extension().string()==this->extension_.toStdString()) {
+            emit(updateCounter(this->fileCounter_++));
+            this->filesVector_.emplace_back((*file).path());
         }
     }
 
-    std::sort(this->InVector_.begin(), this->InVector_.end());
+    std::sort(this->filesVector_.begin(), this->filesVector_.end());
 
-    emit(done(this->InVector_));
-    emit(updateCounter(this->FileCounter_));
+    emit(done(this->filesVector_));
+    emit(updateCounter(this->fileCounter_));
 }
 
 bool FileFinder::setDirectory(const QString &dir) {
     qDebug() << "- " <<  " " << "FileFinder::setDirectory(dir): " << dir;
 
     // check existance
-    this->DirPath_=dir;
+    this->path_=dir;
     return true;
 }
 
@@ -52,7 +52,7 @@ bool FileFinder::setExtension(const QString &ext) {
     qDebug() << "- " <<  " " << "FileFinder::setExtension(ext): " << ext;
 
     // check dot presence
-    this->Extension_=ext;
+    this->extension_=ext;
     return true;
 }
 

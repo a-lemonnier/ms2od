@@ -94,7 +94,7 @@ void RemainingTimeLabel::reset() {
     this->min_=0.;
     this->max_=0.;
     this->speed_=0.;
-    this->rtime_=0.;
+    this->remainTime_=0.;
 
     this->mode_=Mode::Speed;
 
@@ -110,18 +110,18 @@ void RemainingTimeLabel::reset() {
 
 void RemainingTimeLabel::loop_() {
     this->speed_=0.0;
-    this->rtime_=0.0;
+    this->remainTime_=0.0;
     for(auto &vec: this->data_) {
         if (vec.size()>2) {
-            auto [v,t]=this->computeSpeedTime(vec);
+            auto [v,t]=this->computeSpeedTime_(vec);
             this->speed_+=v;
-            this->rtime_+=t;
+            this->remainTime_+=t;
         }
         if (vec.size()>this->maxValues_)  this->trimData_(vec);
     }
 
     this->speed_/=this->threadNumber_;
-    this->rtime_/=this->threadNumber_;
+    this->remainTime_/=this->threadNumber_;
 
     this->displayMode_(this->mode_);
 
@@ -178,12 +178,12 @@ void RemainingTimeLabel::displayMode_(const Mode &mode) {
     else if (this->mode_==Mode::Time) {
         this->setToolTip(tr("Remaining time."));
 
-        if (!std::isnan(this->rtime_) && !std::isinf(this->rtime_) && this->rtime_>0) {
+        if (!std::isnan(this->remainTime_) && !std::isinf(this->remainTime_) && this->remainTime_>0) {
 
-            if (this->rtime_<1.0)  ss << static_cast<int>(this->rtime_*60.0) << " s";
-            if (this->rtime_>1.0 &&
-                this->rtime_<60.0) ss << static_cast<int>(this->rtime_) << " min";
-            if (this->rtime_>60.0) ss << static_cast<int>(this->rtime_/60.0) << " h";
+            if (this->remainTime_<1.0)  ss << static_cast<int>(this->remainTime_*60.0) << " s";
+            if (this->remainTime_>1.0 &&
+                this->remainTime_<60.0) ss << static_cast<int>(this->remainTime_) << " min";
+            if (this->remainTime_>60.0) ss << static_cast<int>(this->remainTime_/60.0) << " h";
 
             this->setText(QString::fromStdString(ss.str()));
         }
@@ -196,7 +196,7 @@ void RemainingTimeLabel::displayMode_(const Mode &mode) {
 }
 
 std::pair<double, double>
-RemainingTimeLabel::computeSpeedTime(const std::vector<std::tuple<double, double>>& vec) {
+RemainingTimeLabel::computeSpeedTime_(const std::vector<std::tuple<double, double>>& vec) {
     auto t0=std::get<0>(vec[0]);
 
     double dt=0.0, dx=0.0;

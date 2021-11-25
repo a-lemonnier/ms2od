@@ -33,6 +33,6 @@ protected:
 
     QTimer* timer_{};
 
-    void blink();
+    void blink_();
 
 };

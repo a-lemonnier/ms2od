@@ -78,15 +78,14 @@ private:
     QObject *parent_;
 
     QTextEdit* TE_{nullptr};
-    QWebEngineView* weView_{nullptr};
+    QWebEngineView* webEngineView{nullptr};
 
     bool isWidgetDefined_=false;
     bool enableWebEngineView_{};
 
-
     QTimer * timer_;
 
-    int freq_{500};
+    int loopPauseDuration_{500};
 
     size_t historyMax_{1000};
     size_t history_{0};
@@ -111,15 +110,15 @@ private:
     std::string prefix_{};
     std::string suffix_{"</span></div>"};
 
-    std::string Header_{};
-    std::string Footer_{};
+    std::string header_{};
+    std::string footer_{};
 
     std::string textColor_{"white"};
     std::string backgroundColor_{"#002d42"};
 
     int currentVectorSize_{0};
     int previousVectorSize_{0};
-    bool newContent=false;
+    bool newContent_=false;
 
     void setLvlStr_(Level lvl);
     std::string getHeader() const;
@@ -128,7 +127,7 @@ private:
 
     void initWebEngineView_();
 
-    void saveLog(const QString& path);
+    void saveLog_(const QString& path);
 };
 
 #include "logger.tpp"

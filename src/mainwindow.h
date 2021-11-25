@@ -160,16 +160,16 @@ private:
         std::atomic<bool> Binary=false;
     };
 
-    State State_{}; //!< Used to know when the program is able to start conversion
+    State state_{}; //!< Used to know when the program is able to start conversion
 
     QSize sizeLed_{16,16};
     QIcon iconLedRed_{":/icons/circle_red.svg"};
     QIcon iconLedGreen_{":/icons/circle_green.svg"};
-    QPixmap pmLedRed_{":/icons/circle_red.svg"};
-    QPixmap pmLedGreen_{":/icons/circle_green.svg"};
+    QPixmap pixmapLedRed_{":/icons/circle_red.svg"};
+    QPixmap pixmapLedGreen_{":/icons/circle_green.svg"};
 
-    int freqStateCheck_=1000; //!< Led update frequency (ms)
-    QTimer* TimerStateCheck_{};
+    int stateCheckFrequency_=1000; //!< Led update frequency (ms)
+    QTimer* timerStateCheck_{};
 
     void updateStateLed_();
     // --------------------------------
@@ -177,54 +177,54 @@ private:
     // ComboBox -----------------------
     bool extFirstTimeSelected_=false;
     void updateComboBoxConv_();
-    int ThreadNumber_{1};
+    int threadNumber_{1};
     // --------------------------------
 
     // File Counter -------------------
-    std::atomic<int> FileCounter_{};
-    QTimer* TimerUpdateCounter_{};
+    std::atomic<int> fileCounter_{};
+    QTimer* timerUpdateCounter_{};
     void startCounter_();
     void stopCounter_();
     void updateCounter_(); //!< This one feed the timer
     // --------------------------------
 
     // Location -----------------------
-    QString InDirPath_{};
-    QString OutDirPath_{};
-    QString LOPath_="/usr/bin/libreoffice";
-    void updateInDirPath_();
-    void updateOutDirPath_();
-    void updateLODirPath_();
+    QString pathInput_{};
+    QString pathOutput_{};
+    QString pathLOBinary_="/usr/bin/libreoffice";
+    void updatePathInput_();
+    void updatePathOuput_();
+    void updatePathLOBinary_();
     bool updateDirPath_(QString &path, LineEditColored &le);
     // --------------------------------
 
     // File List ----------------------
-    bool displayFileName_=false; //!< Display filename in Log
-    std::vector<std::string> inVector_{}; //!< List of to be conv files
-    bool RebuildFolderTree_=false; //!< Copy the existing directory.
+    bool displayLOOutput_=false; //!< Display filename in Log
+    std::vector<std::string> pathsVector_{}; //!< List of to be conv files
+    bool rebuildFolderTree_=false; //!< Copy the existing directory.
     template<typename T>
     std::vector<std::vector<T>> sliceVector_(const std::vector <T>& vec, int n=1);
     // --------------------------------
 
     // Conversion ---------------------
-    const std::string tmpFolderPrefixConv_{"LO_Process"};
-    bool pauseConvert_=false;
-    std::vector<Convert*> vecConvert_;
+    const std::string LOTmpDirectoryPrefix_{"LO_Process"};
+    bool pauseConversion_=false;
+    std::vector<Convert*> convertThreadVector_;
     // --------------------------------
 
     // Misc. Init. -------------------
-    static const std::map<QString, QVector<QString>> AllowedExtensions_;
-    static const std::map<QString, QString> LineEditStyle_;
+    static const std::map<QString, QVector<QString>> allowedExtensions_;
+    static const std::map<QString, QString> lineEditStyle_;
 
     void initLeds_();
     void initComboBox_();
     // --------------------------------
 
     // Log ----------------------------
-    QString LogPath_{"./"};
+    QString pathLogFile_{"./"};
     QFont logFont_{"DejaVu Sans Mono"};
     QPointer<Logger> Log_;
-    QPointer<QWebEngineView> weView_;
+    QPointer<QWebEngineView> webEngineView_;
     void initWebEngineView_();
     // --------------------------------
 
@@ -245,11 +245,11 @@ private:
     // --------------------------------
 
     // Save / Restore -----------------
-    bool confAvailable_=false;
-    bool resetRequest=false;
-    std::string confLocation_="/tmp/ms2od.conf";
-    bool saveConf(const std::string &path);
-    bool loadConf(const std::string &path);
+    bool configAvailable_=false;
+    bool resetRequested_=false;
+    std::string pathConfigFile_="/tmp/ms2od.conf";
+    bool saveConfig_(const std::string &path);
+    bool loadConfig_(const std::string &path);
     // --------------------------------
 
     // Localization -------------------
@@ -269,9 +269,9 @@ private:
     // --------------------------------
 
     // G Effect -----------------------
-    std::vector<std::tuple<QWidget*, QGraphicsEffect*>> effectList_{};
+    std::vector<std::tuple<QWidget*, QGraphicsEffect*>> effectsList_{};
 
-    void blurThis(QWidget* w, bool enable=true, qreal radius=2.0, qreal duration=0.0);
+    void blurWidget(QWidget* w, bool enable=true, qreal radius=2.0, qreal duration=0.0);
     // --------------------------------
 
 

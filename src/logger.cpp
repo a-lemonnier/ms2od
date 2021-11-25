@@ -36,7 +36,7 @@ void Logger::run() {
 
     if (!this->enableWebEngineView_) {
         while(!this->stop_) {
-            QThread::msleep(this->freq_);
+            QThread::msleep(this->loopPauseDuration_);
             count++;
 
             if (!this->data_.isEmpty()) {
@@ -68,16 +68,16 @@ void Logger::run() {
             this->data_.clear();
 
             while(this->pause_)
-                QThread::msleep(this->freq_);
+                QThread::msleep(this->loopPauseDuration_);
         }
     }
     else {
         while(!this->stop_) {
-            QThread::msleep(this->freq_);
+            QThread::msleep(this->loopPauseDuration_);
 
             count++;
 
-            if (this->newContent && !this->data_.isEmpty()) {
+            if (this->newContent_ && !this->data_.isEmpty()) {
 
                 if (this->historyMax_< this->data_.size()) {
                     this->data_=this->data_.mid(static_cast<int>(this->data_.size()*0.8)-1, this->data_.size()-1);
@@ -98,10 +98,10 @@ void Logger::run() {
 
                 // auto scroll if content changes
                 emit(contentChanged());
-                this->newContent=false;
+                this->newContent_=false;
             }
 
-            while(this->pause_) QThread::msleep(this->freq_);
+            while(this->pause_) QThread::msleep(this->loopPauseDuration_);
         }
     }
     emit(done());
@@ -121,7 +121,7 @@ void Logger::setWebEngineView(QWebEngineView* view) {
     if (view!=nullptr) {
         qDebug() << "- " << " " << "Logger::WebEngineView(view): " << view->objectName();
 
-        this->weView_=view;
+        this->webEngineView=view;
         this->isWidgetDefined_=true;
         this->enableWebEngineView_=true;
     }
@@ -248,7 +248,7 @@ QString Logger::getCommentIdx_() const {
     return "<!--" + (QString::fromStdString(std::to_string(this->data_.size())) + "-->");
 }
 
-void Logger::saveLog(const QString& path) {
+void Logger::saveLog_(const QString& path) {
     qDebug() << "- " << " " << "Logger::saveLog(path): " << path;
 
 

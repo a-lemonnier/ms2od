@@ -55,7 +55,7 @@ void Convert::run() {
    std::vector<std::string> tmp_files{};
 
    int i=0;
-   for(const auto &file: this->InVector_) {
+   for(const auto &file: this->filesVector_) {
        while(this->pause_)  QThread::msleep(250);
 
        if (this->stop_) {
@@ -69,13 +69,13 @@ void Convert::run() {
        port << getIdx()+1;
        port << std::setfill('0')<< std::setw(4) << (i)%9999;
 
-       tmp_files.push_back("/tmp/"+this->tmpFilePrefix_+ port.str());
+       tmp_files.push_back("/tmp/"+this->tmpDirectoryPrefix_+ port.str());
 
        Utils::ExtCom EC{};
        EC.setBinary(this->binPath_.toStdString());
        EC.setArgument({ // adjust port and process
            " -env:SingleAppInstance=\"false\" ",
-           ("-env:UserInstallation=\"file:///tmp/"+this->tmpFilePrefix_+ port.str() +"\" ").c_str(),
+           ("-env:UserInstallation=\"file:///tmp/"+this->tmpDirectoryPrefix_+ port.str() +"\" ").c_str(),
            ("--accept=\"socket,host=localhost,port=" + port.str() + ";urp;\" ").c_str(),
             "--norestore",
            "--headless ",
@@ -84,7 +84,7 @@ void Convert::run() {
            ext_dotless.c_str(),
           (" \""+file+"\"").c_str(),
            "--outdir ",
-        this->rebuildTree_ ? ("\""+this->NewFolderTree_[i]+"\"").c_str() : ("\""+this->output_.toStdString()+"\"").c_str()
+        this->rebuildTree_ ? ("\""+this->newFolderTree_[i]+"\"").c_str() : ("\""+this->output_.toStdString()+"\"").c_str()
        });
 
        EC.setEnv("LD_LIBRARY_PATH=/usr/lib64/libreoffice/program");
@@ -104,7 +104,7 @@ void Convert::run() {
 
        i++;
        emit(this->progressionValue(i, this->getIdx()));
-       emit(this->progressionPerCentValue(static_cast<int>(100.0*i/this->InVector_.size()), this->getIdx()));
+       emit(this->progressionPerCentValue(static_cast<int>(100.0*i/this->filesVector_.size()), this->getIdx()));
        if (!res.isEmpty())
             emit(this->progressionString(res, this->getIdx()));
        else {
@@ -156,7 +156,7 @@ void Convert::setBinPath(const QString &binpath) {
 }
 
 void Convert::setInVector(const std::vector<std::string> &invec) {
-    this->InVector_=invec;
+    this->filesVector_=invec;
 }
 
 void Convert::setRebuildTree(bool b) {
@@ -164,7 +164,7 @@ void Convert::setRebuildTree(bool b) {
 }
 
 void Convert::setTmpFolderPrefix(const std::string& prefix) {
-    this->tmpFilePrefix_=prefix;
+    this->tmpDirectoryPrefix_=prefix;
 }
 
 void Convert::makeTree_() {
@@ -175,7 +175,7 @@ void Convert::makeTree_() {
     std::unordered_set<std::string> set{};
 
     int i=0;
-    for(const auto& file: this->InVector_) {
+    for(const auto& file: this->filesVector_) {
         i++;
         std::filesystem::path p(file);
         auto path=p.parent_path().string();
@@ -186,7 +186,7 @@ void Convert::makeTree_() {
 
         std::string new_path=this->output_.toStdString()+path;
 
-        this->NewFolderTree_.emplace_back(new_path);
+        this->newFolderTree_.emplace_back(new_path);
      }
 
     i=0;
