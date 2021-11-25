@@ -7,7 +7,7 @@
 Logger::Logger(QObject* parent):
 QThread(parent),
 parent_(parent) {
-    qDebug() << "- " << " " << "Logger::Logger(): " /*<< te->objectName()*/;
+    qDebug() << "- " << " " << "Logger::Logger(): ";
 
     this->timer_=new QTimer(this);
 
@@ -45,7 +45,7 @@ void Logger::run() {
                     QTextCursor cursor = this->TE_->textCursor();
                     cursor.movePosition(QTextCursor::Start);
 
-                    // disgusting
+                    // weird behavior
                     for(int i=0; i<this->data_.size(); i++) {
                         cursor.movePosition(QTextCursor::Down, QTextCursor::MoveAnchor, 0);
                         cursor.select(QTextCursor::LineUnderCursor);
@@ -101,8 +101,7 @@ void Logger::run() {
                 this->newContent=false;
             }
 
-            while(this->pause_)
-                QThread::msleep(this->freq_);
+            while(this->pause_) QThread::msleep(this->freq_);
         }
     }
     emit(done());
@@ -128,13 +127,11 @@ void Logger::setWebEngineView(QWebEngineView* view) {
     }
 }
 
-
 Logger * Logger::operator() (){ return this; }
 
 void Logger::stop() { this->pause_=false; this->stop_=true; }
 void Logger::pause(bool b) { this->pause_ = b; }
 void Logger::resume(bool b) { this->pause_ = !b; }
-
 
 void Logger::setLvlStr_(Level lvl) {
     this->prefix_="<div class='msg'>";

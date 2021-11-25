@@ -261,7 +261,7 @@ bool MainWindow::browseFile(QString &path, LineEditColored &le) {
     if (!new_path.isEmpty()) {
         if (!std::filesystem::exists(new_path.toStdString())) {
             le.setState(0);
-            this->Log_->append(tr("Binary does not exist "), Logger::Level::Info);
+            this->Log_->append(tr("File does not exist "), Logger::Level::Info);
             return false;
         }
 
@@ -637,6 +637,13 @@ void MainWindow::updateOutDirPath_() {
                                              *ui->lineEdit_dirOut);
 }
 
+void MainWindow::updateLODirPath_() {
+    qDebug() << "- " <<  " " << "updateLODirPath_()";
+
+    this->State_.Binary=this->updateDirPath_(this->LOPath_,
+                                             *ui->lineEdit_LOLoc);
+}
+
 
 bool MainWindow::updateDirPath_(QString &path, LineEditColored &le) {
     qDebug() << "- " <<  " " << "updateDirPath_(path, le): " << path << " " << le.objectName();
@@ -835,7 +842,7 @@ void MainWindow::on_lineEdit_dirIn_editingFinished() {
         ui->lineEdit_dirIn->setText(new_path);
         ui->lineEdit_dirIn->setState(1);
         this->Log_->append<QString>({tr("Path changed to:"), ": ", new_path, "."}, Logger::Level::Info);
-        this->State_.Input=true;
+        this->updateInDirPath_();
     }
 }
 
@@ -854,10 +861,8 @@ void MainWindow::on_lineEdit_dirOut_editingFinished() {
         this->OutDirPath_=new_path;
         ui->lineEdit_dirOut->setText(new_path);
         ui->lineEdit_dirOut->setState(1);
-        std::cout << "something wrong here" << std::endl;
+        this->updateOutDirPath_();
         this->Log_->append<QString>({tr("Path changed to:"), ": ", new_path, "."}, Logger::Level::Info);
-
-        this->State_.Output=true;
     }
 }
 
@@ -878,8 +883,7 @@ void MainWindow::on_lineEdit_LOLoc_editingFinished() {
         ui->lineEdit_LOLoc->setText(new_path);
         ui->lineEdit_LOLoc->setState(1);
         this->Log_->append<QString>({tr("Path changed to:"), ": ", new_path, "."}, Logger::Level::Info);
-
-        this->State_.Binary=true;
+        this->updateLODirPath_();
     }
 }
 

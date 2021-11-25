@@ -25,7 +25,6 @@ class FrameChart : public QFrame {
     Q_OBJECT
 
 public:
-
     explicit FrameChart(QWidget *parent = nullptr);
     ~FrameChart();
 

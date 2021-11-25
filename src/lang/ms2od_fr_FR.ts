@@ -43,19 +43,18 @@
     <name>FrameChart</name>
     <message>
         <location filename="../framechart.ui" line="20"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_framechart.h" line="40"/>
         <source>Chart</source>
         <translation type="unfinished">Graphique</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="142"/>
-        <location filename="../framechart.cpp" line="158"/>
-        <location filename="../framechart.cpp" line="183"/>
+        <location filename="../framechart.cpp" line="118"/>
+        <location filename="../framechart.cpp" line="134"/>
+        <location filename="../framechart.cpp" line="159"/>
         <source>Speed</source>
         <translation type="unfinished">Vitesse</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="184"/>
+        <location filename="../framechart.cpp" line="160"/>
         <source>Duration</source>
         <translation type="unfinished">Durée</translation>
     </message>
@@ -77,105 +76,87 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="37"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="749"/>
         <source>ms2od</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="791"/>
         <source>Conversion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="750"/>
         <source>&amp;Start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="163"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="751"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="197"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="752"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="225"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="753"/>
         <source>Show &amp;Log</source>
         <translation type="unfinished">&amp;Journal</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="262"/>
         <location filename="../mainwindow.ui" line="977"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="757"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="799"/>
         <source>&amp;Quit</source>
         <translation type="unfinished">&amp;Quitter</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="295"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="759"/>
         <source>Binary found ?</source>
         <translation type="unfinished">Binaire trouvé ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="298"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="761"/>
         <source>Bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="763"/>
         <source>Filetype choosen ?</source>
         <translation type="unfinished">Type de fichier choisi ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="331"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="765"/>
         <source>Ext</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="367"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="767"/>
         <source>Input directory defined ?</source>
         <translation type="unfinished">Répertoire d&apos;entrées défini ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="370"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="769"/>
         <source>In</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="403"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="771"/>
         <source>Output directory defined ?</source>
         <translation type="unfinished">Répertoire de sortie défini ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="406"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="773"/>
         <source>Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="451"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="775"/>
         <source>Counter.</source>
         <translation type="unfinished">Compteur.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="454"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="777"/>
         <source>Files:</source>
         <translation type="unfinished">Fichiers:</translation>
     </message>
@@ -187,71 +168,58 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="543"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="782"/>
         <source>Progession.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="641"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="785"/>
         <source>Input directory:</source>
         <translation type="unfinished">Répertoire d&apos;entrées:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="659"/>
         <location filename="../mainwindow.ui" line="894"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="786"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="794"/>
         <source>Browse</source>
         <translation type="unfinished">Parcourir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="716"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="787"/>
         <source>to</source>
         <translation type="unfinished">vers</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <location filename="../mainwindow.ui" line="865"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="788"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="792"/>
         <source>&amp;Browse</source>
         <translation type="unfinished">&amp;Parcourir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="789"/>
         <source>Conversion from:</source>
         <translation type="unfinished">Conversion vers:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="808"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="790"/>
         <source>Output directory:</source>
         <translation type="unfinished">Répertoire de sortie:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="852"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="809"/>
         <source>&amp;Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="887"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="793"/>
         <source>Log Location:</source>
         <translation type="unfinished">Chemin du Journal:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="909"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="795"/>
         <source>LibreOffice location:</source>
         <translation type="unfinished">Chemin de LibreOffice:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="796"/>
         <source>LD_LIBRARY_PATH:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -263,25 +231,21 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="933"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="797"/>
         <source>&amp;Set</source>
         <translation type="unfinished">&amp;Définir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="952"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="798"/>
         <source>Actions:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1005"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="800"/>
         <source>&amp;Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1038"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="801"/>
         <source>About</source>
         <translation type="unfinished">A propos</translation>
     </message>
@@ -293,7 +257,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1106"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="806"/>
         <source>Threads:</source>
         <translation type="unfinished">Tâches:</translation>
     </message>
@@ -311,25 +274,21 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1193"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="807"/>
         <source>Restore folder tree</source>
         <translation type="unfinished">Reconstruire l&apos;arborescence des répertoires</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1208"/>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="808"/>
         <source>Display LibreOfiice Output</source>
         <translation type="unfinished">Afficher la sortie de LibreOffice</translation>
     </message>
     <message>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="779"/>
         <source>Number of files.</source>
-        <translation type="unfinished">Nombre de fichiers.</translation>
+        <translation type="obsolete">Nombre de fichiers.</translation>
     </message>
     <message>
-        <location filename="../../build/src/ms2od_autogen/include/ui_mainwindow.h" line="803"/>
         <source>Language ?</source>
-        <translation type="unfinished">Langue ?</translation>
+        <translation type="obsolete">Langue ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="83"/>
@@ -357,9 +316,13 @@
         <translation type="unfinished">Définition du nombre maximal de tâches à</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="264"/>
         <source>Binary does not exist </source>
-        <translation type="unfinished">Le binaire n&apos;existe pas </translation>
+        <translation type="obsolete">Le binaire n&apos;existe pas </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="264"/>
+        <source>File does not exist </source>
+        <translation type="unfinished">Le fichier n&apos;existe pas </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="270"/>
@@ -369,11 +332,11 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="292"/>
-        <location filename="../mainwindow.cpp" line="649"/>
-        <location filename="../mainwindow.cpp" line="830"/>
-        <location filename="../mainwindow.cpp" line="850"/>
-        <location filename="../mainwindow.cpp" line="872"/>
-        <location filename="../mainwindow.cpp" line="894"/>
+        <location filename="../mainwindow.cpp" line="656"/>
+        <location filename="../mainwindow.cpp" line="837"/>
+        <location filename="../mainwindow.cpp" line="857"/>
+        <location filename="../mainwindow.cpp" line="877"/>
+        <location filename="../mainwindow.cpp" line="898"/>
         <source>Path is invalid</source>
         <translation type="unfinished">Le chemin n&apos;est pas valide</translation>
     </message>
@@ -401,101 +364,101 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="617"/>
-        <location filename="../mainwindow.cpp" line="795"/>
+        <location filename="../mainwindow.cpp" line="802"/>
         <source>files found</source>
         <translation type="unfinished">fichiers trouvés</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="625"/>
-        <location filename="../mainwindow.cpp" line="803"/>
+        <location filename="../mainwindow.cpp" line="810"/>
         <source>Search for files</source>
         <translation type="unfinished">Recherche des fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="694"/>
+        <location filename="../mainwindow.cpp" line="701"/>
         <source>Trimming failed</source>
         <translation type="unfinished">Echec du découpage</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="837"/>
-        <location filename="../mainwindow.cpp" line="858"/>
-        <location filename="../mainwindow.cpp" line="880"/>
-        <location filename="../mainwindow.cpp" line="901"/>
+        <location filename="../mainwindow.cpp" line="844"/>
+        <location filename="../mainwindow.cpp" line="865"/>
+        <location filename="../mainwindow.cpp" line="885"/>
+        <location filename="../mainwindow.cpp" line="905"/>
         <source>Path changed to:</source>
         <translation type="unfinished">Chemin changé vers:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="984"/>
+        <location filename="../mainwindow.cpp" line="988"/>
         <source>Slicing file list</source>
         <translation type="unfinished">Découpe de la liste de fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1019"/>
+        <location filename="../mainwindow.cpp" line="1023"/>
         <source>File Counter and file vector size do not match</source>
         <translation type="unfinished">Le compteur de fichier et le vecteur des fichiers ne correspondent pas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1043"/>
+        <location filename="../mainwindow.cpp" line="1047"/>
         <source>Processing</source>
         <translation type="unfinished">En cours</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1053"/>
+        <location filename="../mainwindow.cpp" line="1057"/>
         <source>Directory trees will be restored</source>
         <translation type="unfinished">L&apos;arborescence sera restaurée</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1061"/>
+        <location filename="../mainwindow.cpp" line="1065"/>
         <source>Resetting configuration</source>
         <translation type="unfinished">Mise-à-zero de la configuration</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1096"/>
+        <location filename="../mainwindow.cpp" line="1100"/>
         <source>Changing the number of threads to</source>
         <translation type="unfinished">Changement du nombre de tâches vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1107"/>
-        <location filename="../mainwindow.cpp" line="1113"/>
+        <location filename="../mainwindow.cpp" line="1111"/>
+        <location filename="../mainwindow.cpp" line="1117"/>
         <source>Toggle language to</source>
         <translation type="unfinished">Changement de la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1107"/>
+        <location filename="../mainwindow.cpp" line="1111"/>
         <source>English</source>
         <translation type="unfinished">Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1113"/>
-        <location filename="../mainwindow.cpp" line="1115"/>
+        <location filename="../mainwindow.cpp" line="1117"/>
+        <location filename="../mainwindow.cpp" line="1119"/>
         <source>French</source>
         <translation type="unfinished">Français</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1115"/>
+        <location filename="../mainwindow.cpp" line="1119"/>
         <source>Cannot change language to</source>
         <translation type="unfinished">Impossible de modifier la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1123"/>
+        <location filename="../mainwindow.cpp" line="1127"/>
         <source>Toggle file names displaying</source>
         <translation type="unfinished">Changement de l&apos;affichier des noms de fichier</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1132"/>
-        <location filename="../mainwindow.cpp" line="1146"/>
+        <location filename="../mainwindow.cpp" line="1136"/>
+        <location filename="../mainwindow.cpp" line="1150"/>
         <source>Resume</source>
         <translation type="unfinished">Reprendre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1133"/>
-        <location filename="../mainwindow.cpp" line="1138"/>
+        <location filename="../mainwindow.cpp" line="1137"/>
+        <location filename="../mainwindow.cpp" line="1142"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1138"/>
-        <location filename="../mainwindow.cpp" line="1146"/>
+        <location filename="../mainwindow.cpp" line="1142"/>
+        <location filename="../mainwindow.cpp" line="1150"/>
         <source>thread</source>
         <translation type="unfinished">tâches</translation>
     </message>

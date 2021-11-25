@@ -194,6 +194,7 @@ private:
     QString LOPath_="/usr/bin/libreoffice";
     void updateInDirPath_();
     void updateOutDirPath_();
+    void updateLODirPath_();
     bool updateDirPath_(QString &path, LineEditColored &le);
     // --------------------------------
 
