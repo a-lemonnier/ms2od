@@ -80,7 +80,7 @@ void Logger::run() {
             if (this->newContent && !this->data_.isEmpty()) {
 
                 if (this->historyMax_< this->data_.size()) {
-#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#if QT_VERSION > QT_VERSION_CHECK(5, 12, 0)
                     this->data_=QVector<QString>(this->data_.begin()-1+static_cast<int>(this->data_.size()*0.8),
                                                  this->data_.end());
 #else
