@@ -13,39 +13,19 @@ const std::map<QString, QVector<QString>> MainWindow::allowedExtensions_= {
     {".csv",  {".ods", ".xls"}},
 };
 
-const std::map<QString, QString> MainWindow::lineEditStyle_=
-{
-{
- "valid",
- "border-color: rgb(0, 255, 0);"
- "border-width : 1.0px;"
- "border-style:inset;"
- "font: 7pt;"
-}
-,
-{
- "invalid",
- "border-color: rgb(255, 0, 0);"
- "border-width : 1.0px;"
- "border-style:inset;"
- "font: 7pt;"
-}
-};
-
-
 bool MainWindow::State::operator ()() {
     return Input &&
-           Output &&
-           Extensions &&
-           Binary;
+    Output &&
+    Extensions &&
+    Binary;
 }
 
 
 MainWindow::MainWindow(QTranslator* translator,
                        QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-    , translator_(translator) {
+: QMainWindow(parent)
+, ui(new Ui::MainWindow)
+, translator_(translator) {
     ui->setupUi(this);
     this->setWindowFlag(Qt::WindowContextHelpButtonHint);
     this->setWindowFlag(Qt::WindowMaximizeButtonHint, false);
@@ -58,8 +38,8 @@ MainWindow::MainWindow(QTranslator* translator,
     this->Log_->setWebEngineView(this->webEngineView_);
     connect(this->Log_, &Logger::sendData, this,
             [&](const QString& str) {
-        this->webEngineView_->setHtml(str);
-    });
+                this->webEngineView_->setHtml(str);
+            });
     connect(this->Log_, &Logger::finished, this->Log_, &Logger::deleteLater);
 
     this->Log_->start();
@@ -139,9 +119,9 @@ MainWindow::MainWindow(QTranslator* translator,
     // Extra connections
     connect(ui->dockWidget, &DockWidgetCloseDetect::closed, this,
             [&]() {
-        ui->pushButton_showLog->setEnabled(true);
-        this->Log_->append(tr("Log hidden")+".", Logger::Level::Info);
-    });
+                ui->pushButton_showLog->setEnabled(true);
+                this->Log_->append(tr("Log hidden")+".", Logger::Level::Info);
+            });
 
     // Timer
     this->timerStateCheck_=new QTimer(this);
@@ -225,7 +205,7 @@ void MainWindow::initComboBox_() {
     ui->spinBox_ThreadNumbers->setValue(max_thread>1 ? max_thread/2 : 1);
 
     for(const auto &key: this->allowedExtensions_)
-       ui->comboBox_conversionIn->addItem(key.first);
+        ui->comboBox_conversionIn->addItem(key.first);
 
     ui->comboBox_conversionIn->setPeriode(200);
     ui->comboBox_conversionIn->setDuration(800);
@@ -367,13 +347,16 @@ void MainWindow::blurWidgets(bool b, std::vector<QWidget*> exclusion_vector) {
         });
     };
 
-    for(auto &w: this->findChildren<QLabel*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-    for(auto &w: this->findChildren<QPushButton*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-    for(auto &w: this->findChildren<QComboBox*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-    for(auto &w: this->findChildren<QCheckBox*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-    for(auto &w: this->findChildren<QProgressBar*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-    for(auto &w: this->findChildren<QTabBar*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
-
+    if (!exclusion_vector.empty()) {
+        for(auto &w: this->findChildren<QLabel*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+        for(auto &w: this->findChildren<QPushButton*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+        for(auto &w: this->findChildren<QComboBox*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+        for(auto &w: this->findChildren<QCheckBox*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+        for(auto &w: this->findChildren<QProgressBar*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+        for(auto &w: this->findChildren<QTabBar*>()) if (!exclude(exclusion_vector, w)) this->blurWidget(w, b);
+    }
+    else
+         this->Log_->append<std::string>({tr("Cannot blur widgets (empty vector) ").toStdString(), "."}, Logger::Level::Info);
 }
 
 
@@ -412,6 +395,9 @@ bool MainWindow::saveConfig_(const std::string &path) {
         flux << "[displayFileName]" << std::endl;
         flux << static_cast<int>(ui->checkBox_DispLOOutput->isChecked()) << std::endl << std::endl;
 
+        flux << "[Lang]" << std::endl;
+        flux << this->locale().language() << std::endl;
+
         flux.close();
         return true;
     }
@@ -437,6 +423,8 @@ bool MainWindow::loadConfig_(const std::string &path) {
             data.emplace_back(line);
         }
 
+
+        // make function for these below
         auto res_indir=std::find(data.begin(), data.end(), "[InDirPath]");
         auto pos_indir=res_indir-data.begin()+1;
 
@@ -464,14 +452,17 @@ bool MainWindow::loadConfig_(const std::string &path) {
         auto res_showFileName=std::find(data.begin(), data.end(), "[displayFileName]");
         auto pos_showFileName=res_showFileName-data.begin()+1;
 
+        auto res_Lang=std::find(data.begin(), data.end(), "[Lang]");
+        auto pos_Lang=res_Lang-data.begin()+1;
+
         status = pos_indir    <   data.size() &&
-                 pos_outdir   <   data.size( )&&
-                 pos_LOdir    <   data.size() &&
-                 pos_Logdir   <   data.size() &&
-                 pos_convin   <   data.size() &&
-                 pos_convout  <   data.size() &&
-                 pos_rebuildtree <data.size() &&
-                 pos_showFileName<data.size();
+        pos_outdir   <   data.size( )&&
+        pos_LOdir    <   data.size() &&
+        pos_Logdir   <   data.size() &&
+        pos_convin   <   data.size() &&
+        pos_convout  <   data.size() &&
+        pos_rebuildtree <data.size() &&
+        pos_showFileName<data.size();
 
         if ( pos_indir   < data.size() ) this->pathInput_=QString::fromStdString(data[pos_indir]);
         if ( pos_outdir  < data.size() ) this->pathOutput_=QString::fromStdString(data[pos_outdir]);
@@ -492,8 +483,8 @@ bool MainWindow::loadConfig_(const std::string &path) {
         }
 
         if ( this->pathInput_.size()  <2 ||
-             this->pathOutput_.size() <2 ||
-             this->pathLOBinary_.size()     <2 ) status = false;
+            this->pathOutput_.size() <2 ||
+            this->pathLOBinary_.size()     <2 ) status = false;
 
         if ( pos_freq   <   data.size() ) {
             try {
@@ -502,6 +493,27 @@ bool MainWindow::loadConfig_(const std::string &path) {
             catch(std::invalid_argument &e) {
                 this->Log_->append<std::string>({tr("Cannot load config file").toStdString(), ": ", e.what(), "."}, Logger::Level::Info);
                 status=false;
+            }
+        }
+
+        if ( pos_Lang   <   data.size() ) {
+            int lang{};
+            try {
+                lang= std::stoi(data[pos_Lang]);
+            }
+            catch(std::invalid_argument &e) {
+                this->Log_->append<std::string>({tr("Cannot load config file").toStdString(), ": ", e.what(), "."}, Logger::Level::Info);
+                status=false;
+            }
+            switch(lang) {
+                case QLocale::French:
+                    this->isEng_=false;
+                    this->setLocale(QLocale::French);
+                    break;
+                case QLocale::English:
+                    this->isEng_=true;
+                    this->setLocale(QLocale::English);
+                    break;
             }
         }
 
@@ -523,25 +535,38 @@ bool MainWindow::loadConfig_(const std::string &path) {
 void MainWindow::changeEvent(QEvent* event) {
     if (event->type()==QEvent::LanguageChange) {
         this->Log_->append(tr("Language changed."), Logger::Level::Info);
-         ui->retranslateUi(this);
+        ui->retranslateUi(this);
     }
 
     QWidget::changeEvent(event);
 }
 
 void MainWindow::blurWidget(QWidget* w, bool enable, qreal radius, qreal duration) {
+    if (!w) {
+        this->Log_->append<QString>({tr("Cannot blur widget"), ": ", w->objectName(), "." }, Logger::Level::Warning);
+        return;
+    }
+    if (radius < 0) {
+         this->Log_->append<QString>({tr("Invalid blur radius"), ": ", QString::number(radius), "." }, Logger::Level::Warning);
+        return;
+    }
+    if (duration <0) {
+        this->Log_->append<QString>({tr("Invalid blur duration"), ": ", QString::number(duration), "." }, Logger::Level::Warning);
+        return;
+    }
+
     // if the widget has no effect or is not in the set, then add it.
     // else just toggle it
 
     bool found=false;
     int pos=0;
     for(const auto &[widget, effect]: this->effectsList_) {
-       pos++;
-       if (widget==w) {
-           found=true;
-           pos-=1;
-           break;
-       }
+        pos++;
+        if (widget==w) {
+            found=true;
+            pos-=1;
+            break;
+        }
     }
 
     if (!found) {
@@ -561,7 +586,7 @@ void MainWindow::blurWidget(QWidget* w, bool enable, qreal radius, qreal duratio
         qDebug() << "- " <<  " " << "MainWindow::blurThis(" << w->objectName() <<"): found";
 
         qobject_cast<QGraphicsBlurEffect*>(std::get<1>(this->effectsList_[pos]))->setEnabled(enable);
-         qobject_cast<QGraphicsBlurEffect*>(std::get<1>(this->effectsList_[pos]))->setBlurRadius(radius);
+        qobject_cast<QGraphicsBlurEffect*>(std::get<1>(this->effectsList_[pos]))->setBlurRadius(radius);
     }
 
 }
@@ -586,7 +611,7 @@ void MainWindow::updatePathInput_() {
     qDebug() << "- " <<  " " << "updateInDirPath_()";
 
     this->state_.Input=this->updateDirPath_(this->pathInput_,
-                                            *ui->lineEdit_dirIn);
+                                            ui->lineEdit_dirIn);
     if (this->state_.Input) {
 
         ui->centralwidget->setEnabled(false);
@@ -599,28 +624,28 @@ void MainWindow::updatePathInput_() {
 
         connect(ff, &FileFinder::done, this,
                 [&](const std::vector<std::string> &vec_files) {
-            this->pathsVector_=vec_files;
-        });
+                    this->pathsVector_=vec_files;
+                });
 
         connect(ff, &FileFinder::updateCounter, this,
                 [this](int counter) {
-            ui->lcdNumber->display(counter);
-            this->fileCounter_=counter;
-        });
+                    ui->lcdNumber->display(counter);
+                    this->fileCounter_=counter;
+                });
 
         connect(ff, &FileFinder::finished, this,
                 [&]() {
-            std::stringstream ss;
-            ss << "\t";
-            ss << this->fileCounter_;
-            ss << " ";
-            ss << tr("files found").toStdString();
-            ss << "." << std::endl;
+                    std::stringstream ss;
+                    ss << "\t";
+                    ss << this->fileCounter_;
+                    ss << " ";
+                    ss << tr("files found").toStdString();
+                    ss << "." << std::endl;
 
-            this->Log_->append(ss.str(), Logger::Level::Info);
+                    this->Log_->append(ss.str(), Logger::Level::Info);
 
-            ui->centralwidget->setEnabled(true);
-        });
+                    ui->centralwidget->setEnabled(true);
+                });
 
         this->Log_->append<QString>({tr("Search for files"), "..."}, Logger::Level::Info);
 
@@ -634,46 +659,55 @@ void MainWindow::updatePathOuput_() {
     qDebug() << "- " <<  " " << "updateOutDirPath_()";
 
     this->state_.Output=this->updateDirPath_(this->pathOutput_,
-                                             *ui->lineEdit_dirOut);
+                                             ui->lineEdit_dirOut);
 }
 
 void MainWindow::updatePathLOBinary_() {
     qDebug() << "- " <<  " " << "updateLODirPath_()";
 
     this->state_.Binary=this->updateDirPath_(this->pathLOBinary_,
-                                             *ui->lineEdit_LOLoc);
+                                             ui->lineEdit_LOLoc);
 }
 
 
-bool MainWindow::updateDirPath_(QString &path, LineEditColored &le) {
-    qDebug() << "- " <<  " " << "updateDirPath_(path, le): " << path << " " << le.objectName();
+bool MainWindow::updateDirPath_(QString &path, LineEditColored *le) {
+    qDebug() << "- " <<  " " << "updateDirPath_(path, le): " << path << " " << le->objectName();
 
-    QString new_path=path;
+    if (le)  {
+        QString new_path=path;
 
-    if (!new_path.isEmpty()) {
-        if (!std::filesystem::exists(new_path.toStdString())) {
-            le.setState(0);
-            this->Log_->append<QString>({tr("Path is invalid"), ": ", path, "."}, Logger::Level::Error);
-            return false;
+        if (!new_path.isEmpty()) {
+            if (!std::filesystem::exists(new_path.toStdString())) {
+                le->setState(0);
+                this->Log_->append<QString>({tr("Path is invalid"), ": ", path, "."}, Logger::Level::Error);
+                return false;
+            }
+
+            path=new_path;
+            le->setText(new_path);
+            le->setState(1);
+            return true;
         }
-
-        path=new_path;
-        le.setText(new_path);
-        le.setState(1);
-        return true;
     }
+    else
+        this->Log_->append<QString>({tr("Empty LineEdit"), ": ", path, "."}, Logger::Level::Error);
+
     return false;
 }
 
 
 template<typename T>
 std::vector<std::vector<T>> MainWindow::sliceVector_(const std::vector<T>& vec, int n) {
-    std::vector<std::vector<T>> res{};
 
-    qDebug() << "-\t" << "MainWindow::sliceVector_(): " << "n=" << n << " - " << "vec.size()=" << vec.size();
+    std::vector<std::vector<T>> res{};
+    if (n<1 || vec.empty() ) {
+            qDebug() << "-\t" << "MainWindow::sliceVector_(): bad parameters " << "n=" << n << " - " << "vec.size()=" << vec.size();
+        return res;
+    }
+
+     qDebug() << "-\t" << "MainWindow::sliceVector_(): " << "n=" << n << " - " << "vec.size()=" << vec.size();
 
     int trim_size=static_cast<int>(std::floor(vec.size()/n));
-    qDebug() << "-\t" << "MainWindow::sliceVector_(): " << "trim_size=" << trim_size;
 
     for(int i=0; i<n; i++) {
         std::vector<T> v{};
@@ -689,9 +723,7 @@ std::vector<std::vector<T>> MainWindow::sliceVector_(const std::vector<T>& vec, 
         // add additionnal strings to the last vector
         for(int i=trim_size*n; i<vec.size() ;i++)
             res[res.size()-1].emplace_back(vec[i]);
-
-        qDebug() << "-\t" << "MainWindow::sliceVector_(): " << "vec.size()-trim_size*n=" << vec.size()-trim_size*n;
-       }
+    }
 
     // test size
     size_t final_size=0;
@@ -699,8 +731,6 @@ std::vector<std::vector<T>> MainWindow::sliceVector_(const std::vector<T>& vec, 
 
     if (final_size!=vec.size())
         this->Log_->append<QString>({tr("Trimming failed"), "."}, Logger::Level::Error);
-
-    qDebug() << "-\t" << "MainWindow::sliceVector_(): " << "done with total size: " << final_size;
 
     return res;
 }
@@ -724,7 +754,7 @@ void MainWindow::updateStateLed_() {
     else              ui->label_LedBin->setPixmap(this->pixmapLedRed_);
 
     if (state_.Extensions)
-                      ui->label_LedExt->setPixmap(this->pixmapLedGreen_);
+        ui->label_LedExt->setPixmap(this->pixmapLedGreen_);
     else              ui->label_LedExt->setPixmap(this->pixmapLedRed_);
 
     this->enableStart_(state_());
@@ -741,22 +771,22 @@ void MainWindow::on_pushButton_quit_clicked() {
 }
 
 void MainWindow::on_comboBox_conversionIn_currentTextChanged(const QString &index) {
-        if (this->extFirstTimeSelected_) {
-            ui->comboBox_conversionIn->removeItem(0);
-            this->extFirstTimeSelected_=false;
-        }
+    if (this->extFirstTimeSelected_) {
+        ui->comboBox_conversionIn->removeItem(0);
+        this->extFirstTimeSelected_=false;
+    }
 
-        std::stringstream ss{};
+    std::stringstream ss{};
 
-        ui->comboBox_conversionOut->clear();
-        for(const auto& val: this->allowedExtensions_.at(index)) {
-            ui->comboBox_conversionOut->addItem(val);
-        }
+    ui->comboBox_conversionOut->clear();
+    for(const auto& val: this->allowedExtensions_.at(index)) {
+        ui->comboBox_conversionOut->addItem(val);
+    }
 
-        this->enableBrowsing_();
-        this->state_.Extensions=true;
+    this->enableBrowsing_();
+    this->state_.Extensions=true;
 
-        this->updatePathInput_();
+    this->updatePathInput_();
 }
 
 void MainWindow::on_dockWidget_topLevelChanged(bool topLevel) {
@@ -784,28 +814,28 @@ void MainWindow::on_pushButton_browseIn_clicked() {
 
         connect(ff, &FileFinder::done, this,
                 [&](const std::vector<std::string> &vec_files) {
-            this->pathsVector_=vec_files;
-        });
+                    this->pathsVector_=vec_files;
+                });
 
         connect(ff, &FileFinder::updateCounter, this,
                 [this](int counter) {
-            ui->lcdNumber->display(counter);
-            this->fileCounter_=counter;
-        });
+                    ui->lcdNumber->display(counter);
+                    this->fileCounter_=counter;
+                });
 
         connect(ff, &FileFinder::finished, this,
                 [&]() {
-            std::stringstream ss;
-            ss << "\t";
-            ss << this->fileCounter_;
-            ss << " ";
-            ss << tr("files found").toStdString();
-            ss << "." << std::endl;
+                    std::stringstream ss;
+                    ss << "\t";
+                    ss << this->fileCounter_;
+                    ss << " ";
+                    ss << tr("files found").toStdString();
+                    ss << "." << std::endl;
 
-            this->Log_->append(ss.str(), Logger::Level::Info);
+                    this->Log_->append(ss.str(), Logger::Level::Info);
 
-            ui->centralwidget->setEnabled(true);
-        });
+                    ui->centralwidget->setEnabled(true);
+                });
 
         this->Log_->append<QString>({tr("Search for files"), "..."}, Logger::Level::Info);
         ff->start();
@@ -946,11 +976,11 @@ void MainWindow::on_pushButton_start_clicked() {
     ui->tabWidget->setTabEnabled(1, false);
 
     this->blurWidgets(true, { ui->pushButton_Pause,
-                              ui->pushButton_quit,
-                              ui->label_Counter,
-                              ui->progressBar,
-                              ui->pushButton_Stop,
-                              ui->label_RemainTime });
+        ui->pushButton_quit,
+        ui->label_Counter,
+        ui->progressBar,
+        ui->pushButton_Stop,
+        ui->label_RemainTime });
 
 
     // Clean previous threads ---------------------
@@ -969,7 +999,7 @@ void MainWindow::on_pushButton_start_clicked() {
         delete conv;
     }
 
-     this->convertThreadVector_.clear();
+    this->convertThreadVector_.clear();
     // --------------------------------------------
 
     // Remaining time -----------------------------
@@ -979,7 +1009,7 @@ void MainWindow::on_pushButton_start_clicked() {
     ui->label_RemainTime->setMode(RemainingTimeLabel::Mode::Time);
     ui->label_RemainTime->setThreadNumber(this->threadNumber_);
     ui->label_RemainTime->start();
-     // --------------------------------------------
+    // --------------------------------------------
 
     QApplication::processEvents();
 
@@ -1008,29 +1038,29 @@ void MainWindow::on_pushButton_start_clicked() {
         connect(conv, &Convert::finished,
                 this,
                 [&](){
-            if (this->fileCounter_==this->pathsVector_.size()) {
-                ui->tabWidget->setTabEnabled(1, true);
-                ui->comboBox_conversionIn->setEnabled(true);
-                ui->comboBox_conversionOut->setEnabled(true);
-                this->enableBrowsing_();
-                this->enableStart_();
-                ui->pushButton_Pause->setDisabled(true);
-                ui->pushButton_Stop->setEnabled(false);
-                this->timerStateCheck_->start(this->stateCheckFrequency_);
-                ui->label_RemainTime->stop();
-            }
-            else
-                this->Log_->append<QString>({tr("File Counter and file vector size do not match"), "."}, Logger::Level::Error);
+                    if (this->fileCounter_==this->pathsVector_.size()) {
+                        ui->tabWidget->setTabEnabled(1, true);
+                        ui->comboBox_conversionIn->setEnabled(true);
+                        ui->comboBox_conversionOut->setEnabled(true);
+                        this->enableBrowsing_();
+                        this->enableStart_();
+                        ui->pushButton_Pause->setDisabled(true);
+                        ui->pushButton_Stop->setEnabled(false);
+                        this->timerStateCheck_->start(this->stateCheckFrequency_);
+                        ui->label_RemainTime->stop();
+                    }
+                    else
+                        this->Log_->append<QString>({tr("File Counter and file vector size do not match"), "."}, Logger::Level::Error);
 
-            this->blurWidgets(false, { ui->pushButton_Pause,
-                                      ui->pushButton_quit,
-                                      ui->label_Counter,
-                                      ui->progressBar,
-                                      ui->label_RemainTime });
+                    this->blurWidgets(false, { ui->pushButton_Pause,
+                        ui->pushButton_quit,
+                        ui->label_Counter,
+                        ui->progressBar,
+                        ui->label_RemainTime });
 
-            this->setAttribute(Qt::WA_TranslucentBackground,false);
+                    this->setAttribute(Qt::WA_TranslucentBackground,false);
 
-        });
+                });
 
         connect(conv, &Convert::progressionValue,
                 this, [&](int val, int idx){
@@ -1122,11 +1152,11 @@ void MainWindow::on_pushButton_Flag_clicked() {
 }
 
 void MainWindow::on_checkBox_DispLOOutput_stateChanged(int arg1) {
-     qDebug() << "- " <<  " " << "on_checkBox_DispFileNames_stateChanged(arg1): " << arg1;
+    qDebug() << "- " <<  " " << "on_checkBox_DispFileNames_stateChanged(arg1): " << arg1;
 
-     this->Log_->append<QString>({tr("Toggle file names displaying"),"."});
+    this->Log_->append<QString>({tr("Toggle file names displaying"),"."});
 
-     this->displayLOOutput_=!this->displayLOOutput_;
+    this->displayLOOutput_=!this->displayLOOutput_;
 }
 
 
@@ -1142,7 +1172,7 @@ void MainWindow::on_pushButton_Pause_clicked() {
         this->Log_->append<QString>({tr("Pause"), " ", QString::number(this->convertThreadVector_.size()), " ",tr("thread"), "."});
         for(auto &conv: this->convertThreadVector_)
             if (conv!=nullptr) conv->pause();
-        ui->label_RemainTime->pause();
+            ui->label_RemainTime->pause();
     }
     else {
         ui->pushButton_Pause->setStyleSheet(this->backupStyleSheet_[ui->pushButton_Pause->objectName()]);
@@ -1150,7 +1180,7 @@ void MainWindow::on_pushButton_Pause_clicked() {
         this->Log_->append<QString>({tr("Resume"), " ", QString::number(this->convertThreadVector_.size()), " ",tr("thread"), "."});
         for(auto &conv: this->convertThreadVector_)
             if (conv!=nullptr) conv->resume();
-        ui->label_RemainTime->resume();
+            ui->label_RemainTime->resume();
     }
 }
 

@@ -195,7 +195,7 @@ private:
     void updatePathInput_();
     void updatePathOuput_();
     void updatePathLOBinary_();
-    bool updateDirPath_(QString &path, LineEditColored &le);
+    bool updateDirPath_(QString &path, LineEditColored *le);
     // --------------------------------
 
     // File List ----------------------
@@ -214,7 +214,6 @@ private:
 
     // Misc. Init. -------------------
     static const std::map<QString, QVector<QString>> allowedExtensions_;
-    static const std::map<QString, QString> lineEditStyle_;
 
     void initLeds_();
     void initComboBox_();
