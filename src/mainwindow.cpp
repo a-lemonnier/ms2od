@@ -156,6 +156,14 @@ MainWindow::MainWindow(QTranslator* translator,
         ui->pushButton_LDLIB->setText("");
     }
 
+    // tray
+    this->trayIcon_=new QSystemTrayIcon(this);
+    this->trayIcon_->setIcon(QIcon(":/icons/recipes.svg"));
+    this->trayIcon_->show();
+    this->trayIcon_->showMessage("ms2od", tr("Started."), QIcon(":/icons/recipes.svg"));
+        //add here actions & connection
+
+
     //Fix this
     ui->label_RemainTime->addValue(1);
 }

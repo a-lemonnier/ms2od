@@ -360,7 +360,12 @@
         <translation type="unfinished">En attente d&apos;ordre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="202"/>
+        <location filename="../mainwindow.cpp" line="163"/>
+        <source>Started.</source>
+        <translation type="unfinished">Démarré.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="210"/>
         <source>Set max threads to</source>
         <translation type="unfinished">Définition du nombre maximal de tâches à</translation>
     </message>
@@ -369,171 +374,171 @@
         <translation type="obsolete">Le binaire n&apos;existe pas </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="244"/>
+        <location filename="../mainwindow.cpp" line="252"/>
         <source>File does not exist </source>
         <translation type="unfinished">Le fichier n&apos;existe pas </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="250"/>
-        <location filename="../mainwindow.cpp" line="279"/>
+        <location filename="../mainwindow.cpp" line="258"/>
+        <location filename="../mainwindow.cpp" line="287"/>
         <source>Path changed to</source>
         <translation type="unfinished">Chemin changer vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="272"/>
-        <location filename="../mainwindow.cpp" line="682"/>
-        <location filename="../mainwindow.cpp" line="867"/>
-        <location filename="../mainwindow.cpp" line="887"/>
-        <location filename="../mainwindow.cpp" line="907"/>
-        <location filename="../mainwindow.cpp" line="928"/>
+        <location filename="../mainwindow.cpp" line="280"/>
+        <location filename="../mainwindow.cpp" line="690"/>
+        <location filename="../mainwindow.cpp" line="875"/>
+        <location filename="../mainwindow.cpp" line="895"/>
+        <location filename="../mainwindow.cpp" line="915"/>
+        <location filename="../mainwindow.cpp" line="936"/>
         <source>Path is invalid</source>
         <translation type="unfinished">Le chemin n&apos;est pas valide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
+        <location filename="../mainwindow.cpp" line="367"/>
         <source>Cannot blur widgets (empty vector) </source>
         <translation type="unfinished">Impossible de flouter les widgets (vecteur vide) </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="377"/>
         <source>Writing configuration into</source>
         <translation type="unfinished">Ecriture de la configuration dans</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="418"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>Loading config file</source>
         <translation type="unfinished">Changement du fichier de configuration</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="480"/>
-        <location filename="../mainwindow.cpp" line="494"/>
-        <location filename="../mainwindow.cpp" line="505"/>
-        <location filename="../mainwindow.cpp" line="526"/>
+        <location filename="../mainwindow.cpp" line="488"/>
+        <location filename="../mainwindow.cpp" line="502"/>
+        <location filename="../mainwindow.cpp" line="513"/>
+        <location filename="../mainwindow.cpp" line="534"/>
         <source>Cannot load config file</source>
         <translation type="unfinished">Impossible de changer le fichier de configuration</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="537"/>
+        <location filename="../mainwindow.cpp" line="545"/>
         <source>Language changed.</source>
         <translation type="unfinished">Langue changée.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="546"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>Cannot blur widget</source>
         <translation type="unfinished">Impossible de flouter le widget</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="558"/>
         <source>Invalid blur radius</source>
         <translation type="unfinished">Rayon de flou invalide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="554"/>
+        <location filename="../mainwindow.cpp" line="562"/>
         <source>Invalid blur duration</source>
         <translation type="unfinished">Durée du flou invalide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="642"/>
-        <location filename="../mainwindow.cpp" line="832"/>
+        <location filename="../mainwindow.cpp" line="650"/>
+        <location filename="../mainwindow.cpp" line="840"/>
         <source>files found</source>
         <translation type="unfinished">fichiers trouvés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="650"/>
-        <location filename="../mainwindow.cpp" line="840"/>
+        <location filename="../mainwindow.cpp" line="658"/>
+        <location filename="../mainwindow.cpp" line="848"/>
         <source>Search for files</source>
         <translation type="unfinished">Recherche des fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="693"/>
+        <location filename="../mainwindow.cpp" line="701"/>
         <source>Empty LineEdit</source>
         <translation type="unfinished">LineEdit vide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="733"/>
+        <location filename="../mainwindow.cpp" line="741"/>
         <source>Trimming failed</source>
         <translation type="unfinished">Echec du découpage</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="874"/>
-        <location filename="../mainwindow.cpp" line="895"/>
-        <location filename="../mainwindow.cpp" line="915"/>
-        <location filename="../mainwindow.cpp" line="935"/>
+        <location filename="../mainwindow.cpp" line="882"/>
+        <location filename="../mainwindow.cpp" line="903"/>
+        <location filename="../mainwindow.cpp" line="923"/>
+        <location filename="../mainwindow.cpp" line="943"/>
         <source>Path changed to:</source>
         <translation type="unfinished">Chemin changé vers:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1018"/>
+        <location filename="../mainwindow.cpp" line="1026"/>
         <source>Slicing file list</source>
         <translation type="unfinished">Découpe de la liste de fichiers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1053"/>
+        <location filename="../mainwindow.cpp" line="1061"/>
         <source>File Counter and file vector size do not match</source>
         <translation type="unfinished">Le compteur de fichier et le vecteur des fichiers ne correspondent pas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1077"/>
+        <location filename="../mainwindow.cpp" line="1085"/>
         <source>Processing</source>
         <translation type="unfinished">En cours</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1087"/>
+        <location filename="../mainwindow.cpp" line="1095"/>
         <source>Directory trees will be restored</source>
         <translation type="unfinished">L&apos;arborescence sera restaurée</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1095"/>
+        <location filename="../mainwindow.cpp" line="1103"/>
         <source>Resetting configuration</source>
         <translation type="unfinished">Mise-à-zero de la configuration</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1130"/>
+        <location filename="../mainwindow.cpp" line="1138"/>
         <source>Changing the number of threads to</source>
         <translation type="unfinished">Changement du nombre de tâches vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1141"/>
-        <location filename="../mainwindow.cpp" line="1147"/>
+        <location filename="../mainwindow.cpp" line="1149"/>
+        <location filename="../mainwindow.cpp" line="1155"/>
         <source>Toggle language to</source>
         <translation type="unfinished">Changement de la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1141"/>
+        <location filename="../mainwindow.cpp" line="1149"/>
         <source>English</source>
         <translation type="unfinished">Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1147"/>
-        <location filename="../mainwindow.cpp" line="1149"/>
+        <location filename="../mainwindow.cpp" line="1155"/>
+        <location filename="../mainwindow.cpp" line="1157"/>
         <source>French</source>
         <translation type="unfinished">Français</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1149"/>
+        <location filename="../mainwindow.cpp" line="1157"/>
         <source>Cannot change language to</source>
         <translation type="unfinished">Impossible de modifier la langue vers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1157"/>
+        <location filename="../mainwindow.cpp" line="1165"/>
         <source>Toggle file names displaying</source>
         <translation type="unfinished">Changement de l&apos;affichier des noms de fichier</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1166"/>
-        <location filename="../mainwindow.cpp" line="1180"/>
+        <location filename="../mainwindow.cpp" line="1174"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>Resume</source>
         <translation type="unfinished">Reprendre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1167"/>
-        <location filename="../mainwindow.cpp" line="1172"/>
+        <location filename="../mainwindow.cpp" line="1175"/>
+        <location filename="../mainwindow.cpp" line="1180"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="1172"/>
         <location filename="../mainwindow.cpp" line="1180"/>
+        <location filename="../mainwindow.cpp" line="1188"/>
         <source>thread</source>
         <translation type="unfinished">tâches</translation>
     </message>

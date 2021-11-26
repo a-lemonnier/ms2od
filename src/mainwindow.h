@@ -36,6 +36,9 @@
 #include <QTextCursor>
 #include <QScrollEvent>
 
+#include <QSystemTrayIcon>
+#include <QAction>
+
 #include <QtGlobal>
 #include <QDebug>
 
@@ -172,6 +175,10 @@ private:
     QTimer* timerStateCheck_{};
 
     void updateStateLed_();
+    // --------------------------------
+    QSystemTrayIcon *trayIcon_{};
+    // Tray Icon ----------------------
+
     // --------------------------------
 
     // ComboBox -----------------------
