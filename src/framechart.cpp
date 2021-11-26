@@ -21,27 +21,7 @@ FrameChart::FrameChart(QWidget *parent) :
 }
 
 FrameChart::~FrameChart() {
-    qDebug() << "-\t~FrameChart() called";
     delete ui;
-}
-
-void FrameChart::setData(const std::vector<std::pair<double, double> >& data) {
-    if (!this->chart_->series().empty())
-        this->chart_->removeSeries(this->series_);
-
-    for(const auto& [x,y]: data) this->series_->append(x,y);
-
-    if (!data.empty()) {
-        this->chart_->removeAxis(this->axisX_);
-        this->chart_->removeAxis(this->axisY_);
-
-        this->chart_->addSeries(this->series_);
-
-        this->chart_->addAxis(this->axisX_, Qt::AlignBottom);
-        this->chart_->addAxis(this->axisY_, Qt::AlignLeft);
-        this->series_->attachAxis(this->axisX_);
-        this->series_->attachAxis(this->axisY_);
-    }
 }
 
 void FrameChart::addPoint(double x, double y) {
@@ -93,7 +73,6 @@ void FrameChart::show() {
     QWidget::show();
 }
 
-
 void FrameChart::changeEvent(QEvent *e) {
     QFrame::changeEvent(e);
     switch (e->type()) {
@@ -118,7 +97,6 @@ void FrameChart::initChart_() {
     this->chart_->setTitle(tr("Speed"));
 
     this->chart_->legend()->hide();
-
 
     this->chartView_ = new QChartView(this->chart_);
     this->chartView_->setRenderHint(QPainter::Antialiasing);

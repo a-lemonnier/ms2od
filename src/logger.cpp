@@ -115,6 +115,8 @@ void Logger::setTextEdit(QTextEdit* te) {
         this->isWidgetDefined_=true;
         this->enableWebEngineView_=false;
     }
+    else
+         qDebug() << "- " << " " << "Logger::setTextEdit(te): nullptr";
 }
 
 void Logger::setWebEngineView(QWebEngineView* view) {
@@ -125,6 +127,8 @@ void Logger::setWebEngineView(QWebEngineView* view) {
         this->isWidgetDefined_=true;
         this->enableWebEngineView_=true;
     }
+    else
+        qDebug() << "- " << " " << "Logger::setWebEngineView(): nullptr";
 }
 
 Logger * Logger::operator() (){ return this; }

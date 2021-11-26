@@ -28,9 +28,6 @@ public:
     explicit FrameChart(QWidget *parent = nullptr);
     ~FrameChart();
 
-    [[__maybe_unused__]]
-    void setData(const std::vector<std::pair<double, double>> &data);
-
     void addPoint(double x, double y);
     void reset();
     void show();

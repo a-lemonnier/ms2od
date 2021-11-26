@@ -48,14 +48,14 @@
         <translation type="unfinished">Graphique</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="118"/>
-        <location filename="../framechart.cpp" line="134"/>
-        <location filename="../framechart.cpp" line="159"/>
+        <location filename="../framechart.cpp" line="97"/>
+        <location filename="../framechart.cpp" line="112"/>
+        <location filename="../framechart.cpp" line="137"/>
         <source>Speed</source>
         <translation type="unfinished">Vitesse</translation>
     </message>
     <message>
-        <location filename="../framechart.cpp" line="160"/>
+        <location filename="../framechart.cpp" line="138"/>
         <source>Duration</source>
         <translation type="unfinished">Durée</translation>
     </message>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="359"/>
         <source>Cannot blur widgets (empty vector) </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impossible de flouter les widgets (vecteur vide) </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
@@ -420,17 +420,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="546"/>
         <source>Cannot blur widget</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Impossible de flouter le widget</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="550"/>
         <source>Invalid blur radius</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Rayon de flou invalide</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="554"/>
         <source>Invalid blur duration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Durée du flou invalide</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="642"/>
@@ -447,7 +447,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="693"/>
         <source>Empty LineEdit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">LineEdit vide</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="733"/>

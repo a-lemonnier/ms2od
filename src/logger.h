@@ -41,7 +41,6 @@ public:
     Logger* operator()();
 
     void run();
-
     void stop();
 
     void setTextEdit(QTextEdit *te);
